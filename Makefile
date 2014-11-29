@@ -60,9 +60,10 @@ release:
 	@echo "building ${OWNER} ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
 	#godep get && \
-	# CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -tags netgo -ldflags '-w' -o /app/run main.go
-	go build -ldflags "-X main.GitCommit ${GIT_COMMIT}${GIT_DIRTY}" -o dist/run
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -tags netgo -ldflags '-w' -o dist/run main.go
+	# go build -ldflags "-X main.GitCommit ${GIT_COMMIT}${GIT_DIRTY}" -o run
 	# go build -ldflags "-X main.GitCommit ${GIT_COMMIT}${GIT_DIRTY}" -o bin/${BIN_NAME}
+	#@CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -tags netgo -ldflags '-w' -o run main.go
 
 build: clean
 	@echo "building ${OWNER} ${BIN_NAME} ${VERSION}"

@@ -28,7 +28,7 @@ ADD dist/run /app/run
 ##RUN mv /tmp/app/sssua /app/
 ##RUN rm -Rf /go/src/sssua
 
-ADD swagger /app/swagger
+# ADD swagger /app/swagger
 
 # define work environment
 WORKDIR /app
