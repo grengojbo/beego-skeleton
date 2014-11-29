@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# This script is designed to be run inside the container
+#
+
+# fail hard and fast even on pipelines
+set -eo pipefail
+
+export NAME_APP=${NAME_APP:sssua}
+export BUILD_DIR=build_go
+
+#if [[ ! -z $NAME_APP ]]; then
+#  NAME_APP="noname"
+#fi
+
+if [[ ! -d /storage/${BUILD_DIR} ]]; then
+  mkdir -p /storage/${BUILD_DIR}
+  echo Create /storage/${BUILD_DIR}
+fi
+
+if [[ -f /app/run ]]; then
+ cp -Rf /app/run /storage/${BUILD_DIR}/${NAME_APP}
+ echo Copy /storage/${BUILD_DIR}/${NAME_APP}...
+fi
+
+#wait
+exec $@
