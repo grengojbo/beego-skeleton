@@ -6,7 +6,7 @@
 # fail hard and fast even on pipelines
 set -eo pipefail
 
-export NAME_APP=${NAME_APP:sssua}
+export NAME_APP=${NAME_APP:noname}
 export BUILD_DIR=build_go
 
 #if [[ ! -z $NAME_APP ]]; then

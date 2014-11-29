@@ -11,7 +11,7 @@ EXPOSE 8080
 
 ADD bin /app/bin
 ADD conf /app/conf
-ADD views /app/views
+#ADD views /app/views
 ADD public /app/public
 VOLUME /app/public
 
@@ -28,6 +28,7 @@ ADD dist/run /app/run
 ##RUN mv /tmp/app/sssua /app/
 ##RUN rm -Rf /go/src/sssua
 
+ADD swagger /app/swagger
 
 # define work environment
 WORKDIR /app
